@@ -1,18 +1,26 @@
 package org.example.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import org.example.backend.TeachersManager;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "groups")
 public class Group {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
     @Column(name = "max_filling")
     private long maxFilling;
+    @OneToMany(mappedBy = "group")
+    public void print()
+    {
+        System.out.println("Name:               " + name
+                       + "\nMaxfilling:         " + maxFilling);
+    }
     public long getId() {return id;}
     public String getName() {return name;}
     public long getMaxFilling() {return maxFilling;}

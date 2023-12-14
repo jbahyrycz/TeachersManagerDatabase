@@ -13,6 +13,8 @@ import java.util.List;
 import java.util.Properties;
 
 public class CustomPersistenceUnitInfo implements PersistenceUnitInfo {
+    private final String puName;
+    public CustomPersistenceUnitInfo(String puName) {this.puName = puName;}
     @Override
     public String getPersistenceUnitName() {
         return "my-persistence-unit";
@@ -68,9 +70,7 @@ public class CustomPersistenceUnitInfo implements PersistenceUnitInfo {
         return null;
     }
     @Override
-    public Properties getProperties() {
-        return null;
-    }
+    public Properties getProperties() {return null;}
     @Override
     public String getPersistenceXMLSchemaVersion() {
         return null;
